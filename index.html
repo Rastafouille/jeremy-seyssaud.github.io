@@ -3,28 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jérémy Seyssaud – Ingénieur Robotique</title>
+  <title>Jérémy Seyssaud – Robotics R&D Engineer</title>
+
+  <!-- Favicon robot -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='15' y='30' width='70' height='50' rx='8' fill='%2338bdf8'/%3E%3Ccircle cx='40' cy='55' r='6' fill='%23000000'/%3E%3Ccircle cx='60' cy='55' r='6' fill='%23000000'/%3E%3Crect x='45' y='15' width='10' height='15' fill='%2322c55e'/%3E%3C/svg%3E" />
+
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0b0f14;
-      --panel: #121826;
+      --bg: #020617;
+      --panel: #0b1220;
       --text: #e5e7eb;
       --muted: #9ca3af;
       --accent: #38bdf8;
       --accent2: #22c55e;
+      --border: #1f2937;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'JetBrains Mono', monospace;
-      background: linear-gradient(120deg, #020617, #0b1220);
+      background: radial-gradient(circle at top, #0b1220, #020617);
       color: var(--text);
       line-height: 1.6;
     }
     a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
     header {
-      padding: 4rem 2rem;
+      padding: 4rem 2rem 2rem;
       max-width: 1100px;
       margin: auto;
     }
@@ -32,37 +40,72 @@
       font-size: 2.6rem;
       margin-bottom: .5rem;
     }
-    header p {
-      color: var(--muted);
-      max-width: 700px;
+    header p { color: var(--muted); max-width: 900px; }
+
+    .actions {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
+    .btn {
+      border: 1px solid var(--border);
+      padding: .6rem 1rem;
+      border-radius: 8px;
+      background: #020617;
+      color: var(--text);
+    }
+    .btn.primary { border-color: var(--accent); color: var(--accent); }
+
     section {
       max-width: 1100px;
       margin: 2rem auto;
       padding: 2rem;
-      background: var(--panel);
+      background: rgba(11,18,32,.9);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    h2 { color: var(--accent2); margin-top: 0; }
+    h3 { margin-bottom: .2rem; }
+
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+    }
+    .event {
+      margin-bottom: 1.8rem;
+      position: relative;
+    }
+    .event::before {
+      content: "";
+      position: absolute;
+      left: -1.9rem;
+      top: .3rem;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+    .event span { color: var(--muted); font-size: .9rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #020617;
+      border: 1px solid var(--border);
+      padding: 1.2rem;
       border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.4);
     }
-    h2 {
-      color: var(--accent2);
-      margin-top: 0;
-      border-bottom: 1px solid #1f2937;
-      padding-bottom: .5rem;
-    }
-    ul { padding-left: 1.2rem; }
-    li { margin-bottom: .6rem; }
-    .job {
-      margin-bottom: 1.5rem;
-    }
-    .job span {
-      color: var(--muted);
-      font-size: .9rem;
-    }
+
     footer {
       text-align: center;
       color: var(--muted);
       padding: 2rem;
+      font-size: .9rem;
     }
   </style>
 </head>
@@ -70,94 +113,91 @@
 
 <header>
   <h1>Jérémy Seyssaud</h1>
-  <p><strong>Ingénieur chercheur en robotique</strong> – Investigation et démantèlement nucléaire.<br>
-  Expertise en systèmes robotiques complexes, navigation autonome, ROS et ingénierie système.</p>
+  <p><strong>Robotics R&D Engineer / Researcher</strong><br>
+  Nuclear inspection & dismantling · Autonomous systems · ROS · System engineering</p>
+
+  <div class="actions">
+    <a class="btn primary" href="CV_Jeremy_Seyssaud.pdf">⬇ Télécharger le CV (PDF)</a>
+    <a class="btn" href="https://www.linkedin.com/in/seyssaud-jeremy-8b9a23148/">LinkedIn</a>
+    <a class="btn" href="https://www.researchgate.net/profile/Jeremy-Seyssaud">ResearchGate</a>
+    <a class="btn" href="#">FR / EN</a>
+  </div>
 </header>
 
 <section>
-  <h2>À propos</h2>
+  <h2>Research profile</h2>
   <p>
-    Ingénieur robotique avec plus de 15 ans d'expérience dans les domaines du démantèlement nucléaire,
-    de la robotique d'investigation en environnements hostiles et de la R&D appliquée.
-    Passionné de systèmes autonomes, d'algorithmique et de technologies robustes (le côté geek assumé).
+    Senior robotics engineer with 15+ years of experience in hostile and nuclear environments.
+    My work focuses on robotic inspection, autonomous navigation, UAV systems and the qualification
+    of complex mechatronic systems for real-world deployment.
   </p>
 </section>
 
 <section>
-  <h2>Expérience professionnelle</h2>
-
-  <div class="job">
-    <strong>Ingénieur chercheur robotique – CEA Marcoule</strong><br>
-    <span>Depuis 11/2020</span>
-    <ul>
-      <li>Développement et qualification de solutions robotiques pour le démantèlement nucléaire</li>
-      <li>Expertise en robotique d'investigation (terrestre, UAV, téléopération)</li>
-      <li>Pilotage technique de projets et soutien aux opérations terrain</li>
-      <li>Pilote robot d'intérieur – Groupe INTRA</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <strong>Chargé de lots / Responsable technique robotique – CEA</strong><br>
-    <span>2017 – 2020</span>
-    <ul>
-      <li>Robotique pour reprise et conditionnement de déchets nucléaires</li>
-      <li>Définition technique, contractualisation et suivi fournisseurs</li>
-      <li>Soutien robotique aux projets de démantèlement</li>
-    </ul>
-  </div>
-
-  <div class="job">
-    <strong>Ingénieur chargé d'affaires – ASSYSTEM EOS</strong><br>
-    <span>2012 – 2016</span>
-    <ul>
-      <li>Conception et industrialisation de robots d'investigation</li>
-      <li>Suivi de projets robotiques de l'idée à la mise en service</li>
-    </ul>
+  <h2>Timeline</h2>
+  <div class="timeline">
+    <div class="event">
+      <h3>CEA Marcoule – Robotics R&D Engineer</h3>
+      <span>2020 – present</span>
+      <p>Robotic investigation systems, UAV, indoor robots, nuclear dismantling projects.</p>
+    </div>
+    <div class="event">
+      <h3>CEA – Robotics Technical Lead</h3>
+      <span>2017 – 2020</span>
+      <p>Waste recovery & conditioning, robotic systems specification and integration.</p>
+    </div>
+    <div class="event">
+      <h3>ASSYSTEM EOS – Robotics Project Engineer</h3>
+      <span>2012 – 2016</span>
+      <p>Design and industrialization of robotic investigation platforms.</p>
+    </div>
   </div>
 </section>
 
 <section>
-  <h2>Compétences techniques</h2>
-  <ul>
-    <li><strong>Robotique :</strong> ROS / ROS2, navigation autonome, SLAM, téléopération</li>
-    <li><strong>Programmation :</strong> Python, C++, Linux, Windev</li>
-    <li><strong>Modélisation & simulation :</strong> Matlab, Simulink, LabVIEW</li>
-    <li><strong>Conception mécanique :</strong> SolidWorks, CATIA, Adams, Autocad</li>
-    <li><strong>Systèmes :</strong> ingénierie système, qualification, essais, sûreté</li>
-  </ul>
+  <h2>Projects (selection)</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Indoor Robots</h3>
+      <p>Robotic investigation platforms for confined and radioactive environments.</p>
+    </div>
+    <div class="card">
+      <h3>UAV for Nuclear Inspection</h3>
+      <p>Indoor UAV feedback, sensing, navigation and deployment constraints.</p>
+    </div>
+    <div class="card">
+      <h3>SERPE</h3>
+      <p>Embedded system for identification and sampling in hostile environments.</p>
+    </div>
+    <div class="card">
+      <h3>SysMAP / SPOC</h3>
+      <p>Advanced manipulation planning and multi-sensor relative positioning systems.</p>
+    </div>
+  </div>
+  <p style="margin-top:1rem;">→ Dedicated pages: <em>projects.html</em></p>
 </section>
 
 <section>
-  <h2>Recherche, publications & conférences (sélection)</h2>
+  <h2>Publications & Conferences</h2>
   <ul>
     <li>QCAV 2025 – Multi-Criteria Navigation Framework for Robotic Missions</li>
     <li>DEM 2024 – Indoor UAV for nuclear investigation</li>
     <li>IEEE IST 2023 – OV2SLAM on EuRoC MAV Datasets</li>
-    <li>Brevet FR3048811 – Réservoir de déchets aspirés</li>
+    <li>Multiple DEM / ATSR / Innorobo conferences (2015–2024)</li>
   </ul>
+  <p>→ Full list: <em>publications.html</em></p>
 </section>
 
 <section>
-  <h2>Enseignement & encadrement</h2>
+  <h2>Teaching & Supervision</h2>
   <ul>
-    <li>Chargé de cours ROS – IMT Mines d'Alès (depuis 2021)</li>
-    <li>Encadrement de thèses, alternances et stages en robotique</li>
-    <li>Suivi de projets R&D étudiants (véhicules autonomes, navigation)</li>
+    <li>ROS lecturer – IMT Mines d’Alès (since 2021)</li>
+    <li>Supervision of PhD, MSc, internships and R&D student projects</li>
   </ul>
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <p>
-    📍 Les Angles, France<br>
-    📧 <a href="mailto:jeremy.seyssaud@cea.fr">jeremy.seyssaud@cea.fr</a><br>
-    📞 06 50 79 28 65
-  </p>
 </section>
 
 <footer>
-  © 2026 – Jérémy Seyssaud · Robotique · Nucléaire · Systèmes autonomes
+  © 2026 – Jérémy Seyssaud · Robotics · Nuclear · Autonomous Systems
 </footer>
 
 </body>
