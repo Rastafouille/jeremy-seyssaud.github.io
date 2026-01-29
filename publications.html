@@ -1,208 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Publications & Research – Jérémy Seyssaud</title>
-  <link rel="icon" type="image/png" href="robot.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Publications & Research – Jérémy Seyssaud</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  font-family:'JetBrains Mono',monospace;
+  background:#020617;
+  color:#e5e7eb;
+  line-height:1.6
+}
+a{color:#38bdf8;text-decoration:none}
+a:hover{text-decoration:underline}
+header,section{max-width:1100px;margin:auto;padding:2rem}
+section{border-top:1px solid #1f2937}
+h1,h2{color:#22c55e}
 
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body{margin:0;font-family:'JetBrains Mono',monospace;background:#020617;color:#e5e7eb;line-height:1.7}
-    a{color:#38bdf8;text-decoration:none}
-    a:hover{text-decoration:underline}
-    header,section{max-width:1100px;margin:auto;padding:2rem}
-    section{border-top:1px solid #1f2937}
-    h1,h2,h3{color:#22c55e}
-    ul{padding-left:1.2rem}
-    li{margin-bottom:1rem}
-    .meta{color:#9ca3af;font-size:.9rem}
-    footer{text-align:center;color:#9ca3af;padding:2rem;font-size:.9rem}
-  </style>
+/* Grid Cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1.5rem
+}
+.card{
+  background:#0b1220;
+  border:1px solid #1f2937;
+  border-radius:12px;
+  padding:1.2rem;
+  display:flex;
+  flex-direction:column
+}
+.card p{flex-grow:1;color:#d1d5db}
+.thumb{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:.8rem
+}
+.meta{font-size:.85rem;color:#9ca3af;margin-bottom:.5rem}
+
+/* Badges */
+.badge{
+  display:inline-block;
+  font-size:.7rem;
+  padding:.25rem .6rem;
+  border-radius:999px;
+  margin-bottom:.5rem;
+  width:fit-content
+}
+.badge.paper{border:1px solid #38bdf8;color:#38bdf8}
+.badge.conf{border:1px solid #22c55e;color:#22c55e}
+.badge.poster{border:1px solid #fbbf24;color:#fbbf24}
+.badge.project{border:1px solid #8b5cf6;color:#8b5cf6}
+.badge.expert{border:1px solid #6b7280;color:#6b7280}
+.badge.patent{border:1px solid #ec4899;color:#ec4899}
+
+footer{text-align:center;color:#9ca3af;padding:2rem;font-size:.9rem}
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Publications, Conferences & Research Activities</h1>
-  <p>
-    Scientific publications, international conferences, patents and research activities
-    in robotics, autonomous systems and nuclear decommissioning.
-  </p>
+  <h1>Publications, Conferences & Research</h1>
+  <p>Chronological overview of peer-reviewed papers, conferences, posters, patents, projects and technical expertise.</p>
   <a href="index.html">← Back to home</a>
 </header>
 
+<!-- ======================= -->
+<!-- 2025 – Latest Work -->
 <section>
-  <h2>Peer-Reviewed Publications</h2>
-  <ul>
-    <li>
-      <strong><a href="https://doi.org/10.1109/IST59124.2023.10355706">OV2SLAM on EuRoC MAV Datasets: A Study of Corner Detector Performance</a></strong><br>
-      <span class="meta">IEEE International Conference on Imaging Systems and Techniques (IST), 2023</span>
-      <p>
-        This paper evaluates the impact of different corner detectors on the performance of the OV2SLAM visual SLAM
-        framework using the EuRoC MAV datasets. The study highlights how detector choice and tuning directly affect
-        localization accuracy and robustness in visual-inertial navigation scenarios.
-      </p>
-    </li>
-  </ul>
+<h2>2025</h2>
+<div class="grid">
+
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/qcav2025.jpg" class="thumb" alt="QCAV 2025">
+  <h3>A Multi-Criteria Navigation Framework for Robotic Missions</h3>
+  <div class="meta">QCAV 2025 – International Conference on Quality Control by Artificial Vision</div>
+  <p>
+    Multi-objective navigation framework for complex robotic missions combining safety, efficiency and constraints. 
+  </p>
+  <a href="https://www.researchgate.net/publication/394908284_A_multicriteria_navigation_framework_for_robotic_missions_in_complex_environments" target="_blank">🔗 ResearchGate / PDF</a>
+</div>
+
+<div class="card">
+  <span class="badge.project">Project</span>
+  <img src="images/xs-ability.jpg" class="thumb" alt="XS-ABILITY project">
+  <h3>XS-ABility – EU Project</h3>
+  <div class="meta">European Innovation Project – 2024–2025</div>
+  <p>Advanced robotic solutions for accessing hard-to-reach areas of nuclear facilities for in-situ characterization.</p>
+  <a href="https://www.xs-ability.eu/" target="_blank">🔗 Official project website</a>
+</div>
+
+</div>
 </section>
 
+<!-- ======================= -->
+<!-- 2024 -->
 <section>
-  <h2>International Conferences & Posters</h2>
-  <ul>
-    <li>
-      <strong>A Multi-Criteria Navigation Framework for Robotic Missions in Complex Environments</strong><br>
-      <span class="meta">QCAV 2025 – International Conference on Quality Control by Artificial Vision</span>
-      <p>
-        Presentation of a multi-criteria navigation framework designed for robotic missions in complex and constrained
-        environments, combining safety, efficiency and mission-specific constraints.
-      </p>
-    </li>
+<h2>2024</h2>
+<div class="grid">
 
-    <li>
-      <strong>Indoor UAV for Nuclear Investigation: A Feedback</strong><br>
-      <span class="meta">DEM 2024 – International Conference on Decommissioning Challenges</span>
-      <p>
-        Feedback on the deployment of indoor UAVs for nuclear facility investigation, focusing on navigation constraints,
-        sensing payloads, operational safety and real-world limitations observed during experiments.
-      </p>
-    </li>
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/dem2024_uav.jpg" class="thumb" alt="Indoor UAV">
+  <h3>Indoor UAV for Nuclear Investigation: A Feedback</h3>
+  <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
+  <p>Operational experience and navigation constraints for UAVs in nuclear environments.</p>
+  <a href="https://www.researchgate.net/publication/391290157_Indoor_UAV_for_nuclear_investigation" target="_blank">🔗 ResearchGate</a>
+</div>
 
-    <li>
-      <strong>Development of a 360° Video Application for Hostile Environment Investigations</strong><br>
-      <span class="meta">DEM 2024 – International Conference on Decommissioning Challenges</span>
-      <p>
-        Description of a 360° video acquisition and visualization system aimed at improving situational awareness during
-        robotic investigations in hazardous and radioactive environments.
-      </p>
-    </li>
+<div class="card">
+  <span class="badge.poster">Poster</span>
+  <img src="images/dem2024_360video.jpg" class="thumb" alt="360° Video">
+  <h3>Development of a 360° Video App for Hostile Environment Investigation</h3>
+  <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
+  <p>Description of a situational awareness system with 360° video acquisition and visualization.</p>
+</div>
 
-    <li>
-      <strong>Agile and Intuitive Robotics for D&D Operations: Use Case of Automated Laser Cutting with Waste Sorting</strong><br>
-      <span class="meta">DEM 2024 – International Conference on Decommissioning Challenges</span>
-      <p>
-        Presentation of an agile robotic solution combining laser cutting and waste sorting for dismantling operations,
-        emphasizing usability, robustness and integration into industrial workflows.
-      </p>
-    </li>
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/dem2024_laser.jpg" class="thumb" alt="Laser cutting robotics">
+  <h3>Agile Robotics for D&D: Laser Cutting with Waste Sorting</h3>
+  <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
+  <p>Use case combining laser cutting and waste sorting automation for dismantling.</p>
+</div>
 
-    <li>
-      <strong>Casimir: System-Level Testing for Electronics Equipment in D&D Operations</strong><br>
-      <span class="meta">DEM 2024 – International Conference on Decommissioning Challenges</span>
-      <p>
-        Overview of system-level testing methodologies applied to electronic equipment used in dismantling and
-        decommissioning operations, with a focus on reliability and qualification.
-      </p>
-    </li>
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/dem2024_casimir.jpg" class="thumb" alt="Casimir testing">
+  <h3>Casimir: System-Level Testing for Electronics in D&D</h3>
+  <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
+  <p>Overview of testing methodologies for electronics used in dismantling environments.</p>
+</div>
 
-    <li>
-      <strong>Assessment of Ultrasonic Cutting Technology for Nuclear Dismantling Projects</strong><br>
-      <span class="meta">DEM Conference, 2021</span>
-      <p>
-        Evaluation of ultrasonic cutting technologies for nuclear dismantling, including performance, limitations and
-        integration constraints in radioactive environments.
-      </p>
-    </li>
-
-    <li>
-      <strong>Remote Operated Aspiration Device for Waste Lying on the Floor of Casemates</strong><br>
-      <span class="meta">DEM 2018 – Avignon, France</span>
-      <p>
-        Design and deployment feedback of a remotely operated aspiration system dedicated to waste retrieval in
-        confined and radioactive casemates.
-      </p>
-    </li>
-
-    <li>
-      <strong>Gamma Imaging Investigation of a Nuclear Casemate</strong><br>
-      <span class="meta">ATSR 2018 – Codolet, France (Poster)</span>
-      <p>
-        Poster presenting feedback on gamma imaging techniques applied to nuclear casemate investigation using
-        robotic platforms.
-      </p>
-    </li>
-
-    <li>
-      <strong>Robot Operating System and Nuclear Dismantling</strong><br>
-      <span class="meta">2RM Robotics Day, 2017 – Lille, France</span>
-      <p>
-        Conference on the use of ROS as a middleware for robotic systems dedicated to nuclear dismantling applications.
-      </p>
-    </li>
-
-    <li>
-      <strong>SERVAL Project: Tele-Operation of a Robotic Arm for Nuclear Dismantling</strong><br>
-      <span class="meta">Innorobo, 2017 – Lyon, France</span>
-      <p>
-        Presentation of a tele-operated robotic arm developed for nuclear dismantling tasks, focusing on control
-        architecture and operator interaction.
-      </p>
-    </li>
-
-    <li>
-      <strong>Robotic D&D: Smart Robots</strong><br>
-      <span class="meta">WMS Journal Conference, 2015 – Phoenix, Arizona, USA</span>
-      <p>
-        Overview of smart robotic systems for decontamination and dismantling operations, addressing autonomy and
-        human-robot interaction.
-      </p>
-    </li>
-
-    <li>
-      <strong>Investigation Robot on Cables</strong><br>
-      <span class="meta">WMS Journal Conference, 2015 – Phoenix, Arizona, USA</span>
-      <p>
-        Presentation of a robotic system designed for inspection tasks along cables in constrained industrial
-        environments.
-      </p>
-    </li>
-  </ul>
+</div>
 </section>
 
+<!-- ======================= -->
+<!-- 2023 -->
 <section>
-  <h2>Patents</h2>
-  <ul>
-    <li>
-      <strong>Waste Aspiration Tank</strong> – FR3048811 (2017)
-      <p>Patent describing a device dedicated to the storage and handling of aspirated radioactive waste.</p>
-    </li>
-    <li>
-      <strong>Device and Method for Mapping a Radioactive Environment</strong> – FR3043211 (2017)
-      <p>Patent covering a measurement and mapping system for environments containing radioactive sources.</p>
-    </li>
-  </ul>
+<h2>2023</h2>
+<div class="grid">
+
+<div class="card">
+  <span class="badge.paper">Peer-Reviewed</span>
+  <img src="images/ov2slam.jpg" class="thumb" alt="OV2SLAM">
+  <h3>OV2SLAM on EuRoC MAV Datasets: A Study of Corner Detector Performance</h3>
+  <div class="meta">IEEE IST 2023</div>
+  <p>Investigation of corner detector influence on OV2SLAM performance using EuRoC MAV datasets.</p>
+  <a href="https://doi.org/10.1109/IST59124.2023.10355706" target="_blank">🔗 DOI (IEEE)</a>
+</div>
+
+</div>
 </section>
 
+<!-- ======================= -->
+<!-- 2022 -->
 <section>
-  <h2>Research Projects & Expertise</h2>
-  <ul>
-    <li>
-      <strong>XS-ABility – European Project (2024)</strong><br>
-      <p>
-        Accessing hard-to-reach areas with advanced robotic innovations for reliable in-situ characterization of
-        nuclear facilities.
-      </p>
-    </li>
-    <li>
-      <strong>Technical Committee – INTRA Group</strong> (2022)
-      <p>Expert contribution to technical orientations for robotic intervention systems.</p>
-    </li>
-    <li>
-      <strong>Molten Salt Reactor Study (ISAC Project)</strong> (2022)
-      <p>Robotics and inspection expertise applied to advanced reactor concepts.</p>
-    </li>
-  </ul>
+<h2>2022</h2>
+<div class="grid">
+
+<div class="card">
+  <span class="badge.expert">Expertise</span>
+  <img src="images/technical_committee.jpg" class="thumb" alt="Technical committee">
+  <h3>Technical Committee – Groupe INTRA</h3>
+  <div class="meta">2022</div>
+  <p>Expert contribution to technical orientations for robotic intervention systems.</p>
+</div>
+
+<div class="card">
+  <span class="badge.expert">Expertise</span>
+  <img src="images/isac_project.jpg" class="thumb" alt="ISAC reactor study">
+  <h3>Molten Salt Reactor Study (ISAC)</h3>
+  <div class="meta">2022</div>
+  <p>Robotics and inspection expertise for advanced nuclear reactor concepts.</p>
+</div>
+
+</div>
 </section>
 
+<!-- ======================= -->
+<!-- 2021 & Earlier -->
 <section>
-  <h2>External Profiles</h2>
-  <ul>
-    <li><a href="https://www.researchgate.net/profile/Jeremy-Seyssaud">ResearchGate</a></li>
-    <li><a href="https://www.linkedin.com/in/seyssaud-jeremy-8b9a23148/">LinkedIn</a></li>
-  </ul>
+<h2>2017–2021</h2>
+<div class="grid">
+
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/dem2018.jpg" class="thumb" alt="DEM 2018">
+  <h3>Assessment of Ultrasonic Cutting Technology for Nuclear Dismantling</h3>
+  <div class="meta">DEM 2018 / Oct 2021</div>
+  <p>Evaluation of ultrasonic cutting methods in dismantling applications.</p>
+</div>
+
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/dem2018_uavaspirator.jpg" class="thumb" alt="Aspiration device">
+  <h3>Remote Operated Aspiration Device for Waste in Casemates</h3>
+  <div class="meta">DEM 2018</div>
+  <p>Design and feedback for remotely operated waste aspiration in confined spaces.</p>
+</div>
+
+<div class="card">
+  <span class="badge.poster">Poster</span>
+  <img src="images/atsr2018.jpg" class="thumb" alt="ATSR 2018">
+  <h3>Investigation by Gamma Imaging of Casemate 14</h3>
+  <div class="meta">ATSR 2018</div>
+  <p>Poster on gamma imaging techniques for nuclear facility investigation.</p>
+</div>
+
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/ros_rdm2017.jpg" class="thumb" alt="ROS & nuclear">
+  <h3>Robot Operating System & Nuclear Dismantling</h3>
+  <div class="meta">2RM Robotics Day 2017</div>
+  <p>Conference on ROS middleware in nuclear dismantling applications.</p>
+</div>
+
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/innorobo2017.jpg" class="thumb" alt="Innorobo 2017">
+  <h3>SERVAL Project: Robotic Arm Tele-Operation</h3>
+  <div class="meta">Innorobo 2017</div>
+  <p>Tele-operation of a robotic arm for dismantling tasks.</p>
+</div>
+
+<div class="card">
+  <span class="badge.patent">Patent</span>
+  <img src="images/patent_tank.jpg" class="thumb" alt="Patent waste tank">
+  <h3>Waste Aspiration Tank</h3>
+  <div class="meta">FR3048811 – 2017</div>
+  <p>Patent for aspirated radioactive waste storage and handling.</p>
+</div>
+
+<div class="card">
+  <span class="badge.patent">Patent</span>
+  <img src="images/patent_mapping.jpg" class="thumb" alt="Patent mapping">
+  <h3>Mapping Radioactive Environments</h3>
+  <div class="meta">FR3043211 – 2017</div>
+  <p>Patent covering techniques for mapping radioactive environments.</p>
+</div>
+
+<div class="card">
+  <span class="badge.paper">Publication</span>
+  <img src="images/hari_mag.jpg" class="thumb" alt="H@ri article">
+  <h3>H@ri, a New Asset for Nuclear Dismantling</h3>
+  <div class="meta">H+ Magazine – Apr 2016</div>
+  <p>Magazine article on intelligent systems for nuclear dismantling.</p>
+</div>
+
+<div class="card">
+  <span class="badge.paper">Publication</span>
+  <img src="images/inspection_robot.jpg" class="thumb" alt="Inspection robot">
+  <h3>Humanoid Inspection & Cleanup Robot</h3>
+  <div class="meta">Jan 2016</div>
+  <p>Publication on humanoid robotics for inspection and cleanup in glovebox environments.</p>
+</div>
+
+<div class="card">
+  <span class="badge.paper">Publication</span>
+  <img src="images/robots_surgery.jpg" class="thumb" alt="Robots & surgery">
+  <h3>Complementary Robots in Surgery & Dismantling</h3>
+  <div class="meta">H+ Magazine – Dec 2015</div>
+  <p>Discussion of robotic applications in surgery and nuclear dismantling.</p>
+</div>
+
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/wms2015.jpg" class="thumb" alt="WMS 2015">
+  <h3>Robotic D&D: Smart Robots</h3>
+  <div class="meta">WMS Journal Conference – Mar 2015</div>
+  <p>Conference on integrated robotic solutions for dismantling & decontamination.</p>
+</div>
+
+<div class="card">
+  <span class="badge.conf">Conference</span>
+  <img src="images/wms2015.jpg" class="thumb" alt="WMS 2015">
+  <h3>Investigation Robot on Cables</h3>
+  <div class="meta">WMS Journal Conference – Mar 2015</div>
+  <p>Presentation on robotic inspection along cables in industrial environments.</p>
+</div>
+
+</div>
 </section>
 
 <footer>
-  © 2026 – Jérémy Seyssaud · Robotics · Autonomous Systems · Nuclear Decommissioning
+© 2026 – Jérémy Seyssaud · Robotics · Autonomous Systems · Nuclear Decommissioning
 </footer>
 
 </body>
