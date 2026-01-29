@@ -3,103 +3,204 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Projects – Jérémy Seyssaud</title>
+<title>Jérémy Seyssaud</title>
+<link rel="icon" type="image/png" href="robot.png">
+
+
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-body{margin:0;font-family:'JetBrains Mono',monospace;background:#020617;color:#e5e7eb}
+body{
+  margin:0;
+  font-family:'JetBrains Mono',monospace;
+  background:#020617;
+  color:#e5e7eb
+}
+
 a{color:#38bdf8;text-decoration:none}
-header,section{max-width:1100px;margin:auto;padding:2rem}
+a:hover{text-decoration:underline}
+
+header,section{
+  max-width:1100px;
+  margin:auto;
+  padding:2rem
+}
+
 section{border-top:1px solid #1f2937}
+
 h1,h2{color:#22c55e}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
-.card{background:#0b1220;border:1px solid #1f2937;border-radius:12px;padding:1.2rem}
-.thumb{background:#020617;border:1px dashed #1f2937;border-radius:8px;height:160px;display:flex;align-items:center;justify-content:center;color:#9ca3af;margin-bottom:.8rem}
-footer{text-align:center;color:#9ca3af;padding:2rem}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem
+}
+
+.card{
+  background:#0b1220;
+  border:1px solid #1f2937;
+  border-radius:12px;
+  padding:1.2rem;
+  display:flex;
+  flex-direction:column
+}
+
+.card p{
+  flex-grow:1
+}
+
+.thumb-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:.8rem;
+  display:block;
+  cursor:pointer;
+  transition:transform .2s ease
+}
+
+.thumb-img:hover{
+  transform:scale(1.03)
+}
+
+/* BADGES */
+.badge{
+  display:inline-block;
+  font-size:.7rem;
+  padding:.25rem .6rem;
+  border-radius:999px;
+  margin-bottom:.5rem;
+  width:fit-content
+}
+
+.badge.github{
+  background:#111827;
+  color:#38bdf8;
+  border:1px solid #38bdf8
+}
+
+.badge.web{
+  background:#1e1b4b;
+  color:#a78bfa;
+  border:1px solid #a78bfa
+}
+
+/* LIGHTBOX */
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000
+}
+
+#lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:12px
+}
+
+footer{
+  text-align:center;
+  color:#9ca3af;
+  padding:2rem
+}
 </style>
 </head>
-<body>
-<header>
-<h1>Research & Engineering Projects</h1>
-<p>Selection of robotics R&D projects in nuclear and hostile environments.</p>
-<a href="index.html">← Back to main page</a>
-</header>
 
+<body>
+
+<header>
+  <h1>Personnal Projects</h1>
+  <p>Selection of robotics, R&D, web, IoT, Web projects.</p>
+  <a href="index.html">← Back to main page</a>
+</header>
 
 <section>
 <h2>Personal Projects</h2>
+
 <div class="grid">
 
-
 <div class="card">
-<img src="https://github.com/Rastafouille/AirBee/blob/master/Picture/ensemblev2.jpg" alt="AirBee project" class="thumb-img" />
+<span class="badge github">GitHub</span>
+<img src="https://raw.githubusercontent.com/Rastafouille/AirBee/master/Picture/ensemblev2.jpg" class="thumb-img" onclick="openLightbox(this)">
 <h3>AirBee – Autonomous Connected Beehive</h3>
-<p>IoT system for real‑time monitoring of beehive health (temperature, humidity, weight, battery level). Solar‑powered embedded system using Arduino and Sigfox for long‑range communication.</p>
-<a href="https://github.com/Rastafouille/AirBee">GitHub repository</a>
+<p>IoT system for real-time monitoring of beehive health (temperature, humidity, weight, battery level).</p>
+<a href="https://github.com/Rastafouille/AirBee" target="_blank">GitHub repository</a>
 </div>
 
-
 <div class="card">
-<img src="https://github.com/Rastafouille/BeeDetection/blob/master/images/tracking2.jpg" alt="BeeDetection project" class="thumb-img" />
-<h3>BeeDetection – Computer Vision for Beehive Monitoring</h3>
-<p>Python and OpenCV‑based vision project for detecting and tracking bees, pollen and varroa mites. Includes object detection, tracking and experimental ML approaches.</p>
-<a href="https://github.com/Rastafouille/BeeDetection">GitHub repository</a>
+<span class="badge github">GitHub</span>
+<img src="https://raw.githubusercontent.com/Rastafouille/BeeDetection/master/images/tracking2.jpg" class="thumb-img" onclick="openLightbox(this)">
+<h3>BeeDetection – Computer Vision</h3>
+<p>Python & OpenCV project for detecting and tracking bees, pollen and varroa mites.</p>
+<a href="https://github.com/Rastafouille/BeeDetection" target="_blank">GitHub repository</a>
 </div>
 
-
 <div class="card">
-<img src="https://github.com/Rastafouille/TempoBox/blob/main/IMG/1.jpg" alt="TempoBox project" class="thumb-img" />
-<h3>TempoBox – Embedded Timing & Control System</h3>
-<p>Custom embedded controller designed for timing, sequencing and automation tasks. Focus on reliability, low power consumption and simple user interfaces.</p>
-<a href="https://github.com/Rastafouille/TempoBox">GitHub repository</a>
-
+<span class="badge github">GitHub</span>
+<img src="https://raw.githubusercontent.com/Rastafouille/TempoBox/main/IMG/1.jpg" class="thumb-img" onclick="openLightbox(this)">
+<h3>TempoBox</h3>
+<p>Embedded timing and automation controller focused on reliability and low power consumption.</p>
+<a href="https://github.com/Rastafouille/TempoBox" target="_blank">GitHub repository</a>
 </div>
 
-
 <div class="card">
-<img src="https://github.com/Rastafouille/SolarMiningTool/blob/main/prod.jpg" alt="Solar Mining Tool project" class="thumb-img" />
+<span class="badge github">GitHub</span>
+<img src="https://raw.githubusercontent.com/Rastafouille/SolarMiningTool/main/prod.jpg" class="thumb-img" onclick="openLightbox(this)">
 <h3>Solar Mining Tool</h3>
-<p>Experimental solar‑powered embedded tool exploring energy harvesting, power management and autonomous operation in constrained environments.</p>
-<a href="https://github.com/Rastafouille/SolarMiningTool">GitHub repository</a>
-</div>
-
-
-<div class="card">
-<img src="https://github.com/Rastafouille/ESP32-LedPanel/blob/main/IMG/4.png" alt="LED Panel project" class="thumb-img" />
-<h3>LED Panel – Custom Display & Control Electronics</h3>
-<p>Design and control of programmable LED panels, including electronics, firmware and control software for dynamic visual feedback.</p>
-<a href="https://github.com/Rastafouille/ESP32-LedPanel">GitHub repository</a>
-</div>
-
-
-<div class="card">
-<img src="images/rccar1.jpg" alt="RC Car project" class="thumb-img" />
-<img src="images/rccar2.jpg" alt="RC Car project" class="thumb-img" />
-<h3>RC Car – Embedded Control & Experimentation Platform</h3>
-<p>Remote‑controlled car used as a testbed for embedded systems, motor control, sensors integration and autonomous driving experiments.</p>
-<a href="https://github.com/Rastafouille/rccar">GitHub repository</a>
+<p>Experimental solar-powered embedded tool exploring energy harvesting.</p>
+<a href="https://github.com/Rastafouille/SolarMiningTool" target="_blank">GitHub repository</a>
 </div>
 
 <div class="card">
-<img src="images/DuckFarmer.jpg" alt="Duck Farmer" class="thumb-img" />
-<h3>Telegram Games</h3>
-<p>Web3 Play to Airdrop project on OpenNetwork Blockchain. Catch duck to earn point and accumulate rewards.</p>
+<span class="badge github">GitHub</span>
+<img src="https://raw.githubusercontent.com/Rastafouille/ESP32-LedPanel/main/IMG/4.png" class="thumb-img" onclick="openLightbox(this)">
+<h3>LED Panel</h3>
+<p>Design and control of programmable LED panels (electronics, firmware, software).</p>
+<a href="https://github.com/Rastafouille/ESP32-LedPanel" target="_blank">GitHub repository</a>
 </div>
 
 <div class="card">
-<img src="images/website.jpg" alt="web Site" class="thumb-img" />
-<h3>Web site</h3>
-<p>Design and develop a responsive web site for association projects and services.</p>
-<a href="www.baragnas.fr">url</a>
-
+<span class="badge github">GitHub</span>
+<img src="images/rccar1.jpeg" class="thumb-img" onclick="openLightbox(this)">
+<h3>RC Car Platform</h3>
+<p>Embedded control, motor driving, sensors integration and autonomous experiments.</p>
+<a href="https://github.com/Rastafouille/rccar" target="_blank">GitHub repository</a>
 </div>
 
+<div class="card">
+<span class="badge web">Web</span>
+<img src="images/website.jpg" class="thumb-img" onclick="openLightbox(this)">
+<h3>Web Site</h3>
+<p>Design and development of a responsive website for association projects.</p>
+<a href="https://www.baragnas.fr" target="_blank">www.baragnas.fr</a>
+</div>
 
 </div>
 </section>
 
-
 <footer>
 © 2026 – Jérémy Seyssaud
 </footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(img){
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').style.display = 'flex';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display = 'none';
+}
+</script>
+
 </body>
 </html>
