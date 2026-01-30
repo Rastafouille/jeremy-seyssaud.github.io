@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Publications & Research – Jérémy Seyssaud</title>
+<title>Jérémy Seyssaud</title>
+<link rel="icon" type="image/png" href="robot.png">
+
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 body{
@@ -15,15 +17,54 @@ body{
 }
 a{color:#38bdf8;text-decoration:none}
 a:hover{text-decoration:underline}
-header,section{max-width:1100px;margin:auto;padding:2rem}
-section{border-top:1px solid #1f2937}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  max-width:1100px;
+  margin:auto;
+  padding:1.5rem 2rem;
+
+  background:rgba(2,6,23,.9);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid #1f2937;
+}
+
+/* Bloc titre + description */
+.header-left h1{  margin-bottom:.4rem;}
+.header-left p{  margin:0 0 .8rem 0;}
+
+/* Ligne basse : back à gauche / filtres à droite */
+.header-right{  display:flex;  align-items:center;
+  justify-content:space-between; /* 🔑 */
+  gap:1rem;}
+
+/* Back link */
+.back-link{
+  font-size:.8rem;
+  white-space:nowrap;
+}
+
+/* Filtres */
+.filters{
+  display:flex;
+  gap:.6rem;
+}
+
+
+
+section{border-top:1px solid #1f2937;
+max-width:1100px;margin:auto;padding:2rem}
 h1,h2{color:#22c55e}
 
 /* Grid Cards */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:1.5rem
+  grid-template-columns:repeat(3, 320px); /* 🔥 largeur FIXE */
+  gap:1.5rem;
+  justify-content:center; /* centre la grille */
 }
 .card{
   background:#0b1220;
@@ -33,257 +74,384 @@ h1,h2{color:#22c55e}
   display:flex;
   flex-direction:column
 }
-.card p{flex-grow:1;color:#d1d5db}
-.thumb{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:8px;
-  margin-bottom:.8rem
-}
+
+.card p{flex-grow:1;color:#d1d5db;  transition:opacity .25s ease;}
+
+.thumb{  width:100%;  height:160px;  object-fit:cover;  border-radius:8px;
+  margin-bottom:.8rem}
+
 .meta{font-size:.85rem;color:#9ca3af;margin-bottom:.5rem}
+
+.card-meta{  display:flex;  align-items:center;  gap:.5rem;  margin-bottom:.6rem;
+}
+.year{  font-size:.7rem;  color:#9ca3af;}
+/* FILTERS */
+
+
+.filters{
+  display:flex;
+  gap:.6rem;
+}
+.filters select{
+  background:#020617;  color:#e5e7eb;  border:1px solid #1f2937;  padding:.5rem .8rem;  border-radius:8px;
+  font-family:'JetBrains Mono',monospace;  font-size:.8rem;}
+
 
 /* Badges */
 .badge{
-  display:inline-block;
-  font-size:.7rem;
-  padding:.25rem .6rem;
-  border-radius:999px;
-  margin-bottom:.5rem;
-  width:fit-content
+  display:inline-block;  font-size:.7rem;  padding:.25rem .6rem;  border-radius:999px;  margin-bottom:.5rem;
+  width:fit-content;  font-weight:400;}
+.badge:hover{
+  opacity:.9;
 }
-.badge.paper{border:1px solid #38bdf8;color:#38bdf8}
-.badge.conf{border:1px solid #22c55e;color:#22c55e}
-.badge.poster{border:1px solid #fbbf24;color:#fbbf24}
-.badge.project{border:1px solid #8b5cf6;color:#8b5cf6}
-.badge.expert{border:1px solid #6b7280;color:#6b7280}
-.badge.patent{border:1px solid #ec4899;color:#ec4899}
+
+/* Paper / Publication */
+.badge.paper{  background:#0b1f33;  color:#38bdf8;  border:1px solid #38bdf8;}
+
+/* Conference */
+.badge.conf{  background:#052e16;  color:#22c55e;  border:1px solid #22c55e;}
+
+/* Poster */
+.badge.poster{  background:#3a2a05;  color:#fbbf24;  border:1px solid #fbbf24;}
+
+/* European project */
+.badge.project{  background:#1e1b4b;  color:#a78bfa;  border:1px solid #a78bfa;}
+
+/* Expertise */
+.badge.expert{  background:#111827;  color:#9ca3af;  border:1px solid #6b7280;}
+
+/* Patent */
+.badge.patent{  background:#3a0f2e;  color:#ec4899;  border:1px solid #ec4899;}
+
+.badge.year{  background:#020617;  color:#e5e7eb;  border:1px solid #374151;}
+
+@media (max-width:1020px){
+  .grid{
+    grid-template-columns:repeat(2, 320px);
+  }
+}
+
+@media (max-width:680px){  .grid{    grid-template-columns:1fr;  }
+}
+@media (max-width:800px){  
+  .header-right{    flex-direction:column;    align-items:flex-start;    gap:.6rem;  }
+  .filters{    width:100%;    justify-content:flex-start;  }
+}
+
 
 footer{text-align:center;color:#9ca3af;padding:2rem;font-size:.9rem}
+
+
+
 </style>
 </head>
 <body>
-
 <header>
-  <h1>Publications, Conferences & Research</h1>
-  <p>Chronological overview of peer-reviewed papers, conferences, posters, patents, projects and technical expertise.</p>
-  <a href="index.html">← Back to home</a>
+    <div class="header-left">
+      <h1>Publications, Conferences & Research</h1>
+      <p>
+        Chronological overview of peer-reviewed papers, conferences, posters,
+        patents, projects and technical expertise.
+      </p>
+    </div>
+
+    <div class="header-right">
+      <a href="index.html" class="back-link">← Back to home</a>
+
+      <div class="filters">
+        <select id="filter-type">
+          <option value="all">All types</option>
+          <option value="conf">Conference</option>
+          <option value="paper">Publication</option>
+          <option value="poster">Poster</option>
+          <option value="project">Project</option>
+          <option value="expert">Expertise</option>
+          <option value="patent">Patent</option>
+        </select>
+
+        <select id="filter-year">
+          <option value="all">All years</option>
+          <option value="2025">2025</option>
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2018">2018</option>
+          <option value="2017">2017</option>
+          <option value="2016">2016</option>
+          <option value="2015">2015</option>
+        </select>
+    </div>
+  </div>
 </header>
 
-<!-- ======================= -->
-<!-- 2025 – Latest Work -->
+
 <section>
-<h2>2025</h2>
+
+
+
+
+
+
 <div class="grid">
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/qcav2025.jpg" class="thumb" alt="QCAV 2025">
+<div class="card" data-type="conf" data-year="2025">
+<div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2025</span>
+</div>
+  <img src="images/Qcav.png" class="thumb" alt="QCAV 2025">
   <h3>A Multi-Criteria Navigation Framework for Robotic Missions</h3>
   <div class="meta">QCAV 2025 – International Conference on Quality Control by Artificial Vision</div>
   <p>
     Multi-objective navigation framework for complex robotic missions combining safety, efficiency and constraints. 
   </p>
-  <a href="https://www.researchgate.net/publication/394908284_A_multicriteria_navigation_framework_for_robotic_missions_in_complex_environments" target="_blank">🔗 ResearchGate / PDF</a>
+  <a href="https://www.researchgate.net/publication/394908284_A_multicriteria_navigation_framework_for_robotic_missions_in_complex_environments" target="_blank">🔗 ResearchGate</a>
 </div>
 
-<div class="card">
-  <span class="badge.project">Project</span>
-  <img src="images/xs-ability.jpg" class="thumb" alt="XS-ABILITY project">
+<div class="card" data-type="project" data-year="2024">
+<div class="card-meta">
+  <span class="badge project">Project</span>
+  <span class="badge year">2024</span>
+</div>
+  <img src="images/xsability-logo.png" class="thumb" alt="XS-ABILITY project">
   <h3>XS-ABility – EU Project</h3>
-  <div class="meta">European Innovation Project – 2024–2025</div>
+  <div class="meta">European Innovation Project – 2024–2027</div>
   <p>Advanced robotic solutions for accessing hard-to-reach areas of nuclear facilities for in-situ characterization.</p>
   <a href="https://www.xs-ability.eu/" target="_blank">🔗 Official project website</a>
 </div>
 
-</div>
-</section>
 
-<!-- ======================= -->
-<!-- 2024 -->
-<section>
-<h2>2024</h2>
-<div class="grid">
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/dem2024_uav.jpg" class="thumb" alt="Indoor UAV">
+
+<div class="card" data-type="conf" data-year="2024">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2024</span>
+  </div>
+  <img src="images/elios2.jpg" class="thumb" alt="Indoor UAV">
   <h3>Indoor UAV for Nuclear Investigation: A Feedback</h3>
   <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
   <p>Operational experience and navigation constraints for UAVs in nuclear environments.</p>
   <a href="https://www.researchgate.net/publication/391290157_Indoor_UAV_for_nuclear_investigation" target="_blank">🔗 ResearchGate</a>
 </div>
 
-<div class="card">
-  <span class="badge.poster">Poster</span>
-  <img src="images/dem2024_360video.jpg" class="thumb" alt="360° Video">
+<div class="card" data-type="poster" data-year="2024">
+  <div class="card-meta">
+  <span class="badge poster">Poster</span>
+  <span class="badge year">2024</span>
+</div>
+  <img src="images/rico.jpg" class="thumb" alt="360° Video">
   <h3>Development of a 360° Video App for Hostile Environment Investigation</h3>
   <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
   <p>Description of a situational awareness system with 360° video acquisition and visualization.</p>
+  <a href="https://cea.hal.science/cea-04724444v1" target="_blank">🔗 HAL Science</a>
 </div>
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/dem2024_laser.jpg" class="thumb" alt="Laser cutting robotics">
+<div class="card" data-type="conf" data-year="2024">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2024</span>
+</div>
+  <img src="images/laser.jpg" class="thumb" alt="Laser cutting robotics">
   <h3>Agile Robotics for D&D: Laser Cutting with Waste Sorting</h3>
   <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
   <p>Use case combining laser cutting and waste sorting automation for dismantling.</p>
+  <a href="https://cea.hal.science/cea-04605508v1" target="_blank">🔗 HAL Science</a>
 </div>
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/dem2024_casimir.jpg" class="thumb" alt="Casimir testing">
+<div class="card" data-type="conf" data-year="2024">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2024</span>
+</div>
+  <img src="images/casimir.jpg" class="thumb" alt="Casimir testing">
   <h3>Casimir: System-Level Testing for Electronics in D&D</h3>
   <div class="meta">DEM 2024 – International Conference on Decommissioning Challenges</div>
   <p>Overview of testing methodologies for electronics used in dismantling environments.</p>
+  <a href="https://cea.hal.science/hal-04776911v1" target="_blank">🔗 HAL Science</a>
 </div>
 
+
+<div class="card" data-type="paper" data-year="2023">
+  <div class="card-meta">
+  <span class="badge paper">Peer-Reviewed</span>
+  <span class="badge year">2023</span>
 </div>
-</section>
-
-<!-- ======================= -->
-<!-- 2023 -->
-<section>
-<h2>2023</h2>
-<div class="grid">
-
-<div class="card">
-  <span class="badge.paper">Peer-Reviewed</span>
   <img src="images/ov2slam.jpg" class="thumb" alt="OV2SLAM">
   <h3>OV2SLAM on EuRoC MAV Datasets: A Study of Corner Detector Performance</h3>
   <div class="meta">IEEE IST 2023</div>
   <p>Investigation of corner detector influence on OV2SLAM performance using EuRoC MAV datasets.</p>
-  <a href="https://doi.org/10.1109/IST59124.2023.10355706" target="_blank">🔗 DOI (IEEE)</a>
+  <a href="https://imt-mines-ales.hal.science/hal-04205260v1" target="_blank">🔗 HAL Science</a>
 </div>
 
+
+
+<div class="card" data-type="expert" data-year="2022">
+  <div class="card-meta">
+  <span class="badge expert">Expertise</span>
+  <span class="badge year">2022</span>
 </div>
-</section>
-
-<!-- ======================= -->
-<!-- 2022 -->
-<section>
-<h2>2022</h2>
-<div class="grid">
-
-<div class="card">
-  <span class="badge.expert">Expertise</span>
-  <img src="images/technical_committee.jpg" class="thumb" alt="Technical committee">
+  <img src="images/intra.jpeg" class="thumb" alt="Technical committee">
   <h3>Technical Committee – Groupe INTRA</h3>
   <div class="meta">2022</div>
   <p>Expert contribution to technical orientations for robotic intervention systems.</p>
+  <a href="https://www.groupe-intra.com/" target="_blank">🔗 Groupe INTRA</a>
 </div>
 
-<div class="card">
-  <span class="badge.expert">Expertise</span>
-  <img src="images/isac_project.jpg" class="thumb" alt="ISAC reactor study">
+<div class="card" data-type="expert" data-year="2022">
+  <div class="card-meta">
+  <span class="badge expert">Expertise</span>
+  <span class="badge year">2022</span>
+</div>
+  <img src="images/MSR.png" class="thumb" alt="ISAC reactor study">
   <h3>Molten Salt Reactor Study (ISAC)</h3>
   <div class="meta">2022</div>
   <p>Robotics and inspection expertise for advanced nuclear reactor concepts.</p>
 </div>
 
+
+
+<div class="card" data-type="conf" data-year="2021">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2021</span>
 </div>
-</section>
-
-<!-- ======================= -->
-<!-- 2021 & Earlier -->
-<section>
-<h2>2017–2021</h2>
-<div class="grid">
-
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/dem2018.jpg" class="thumb" alt="DEM 2018">
+  <img src="images/hscut.jpg" class="thumb" alt="DEM 2018">
   <h3>Assessment of Ultrasonic Cutting Technology for Nuclear Dismantling</h3>
-  <div class="meta">DEM 2018 / Oct 2021</div>
+  <div class="meta">DEM 2021</div>
   <p>Evaluation of ultrasonic cutting methods in dismantling applications.</p>
+  <a href="https://cea.hal.science/cea-04815420v1" target="_blank">🔗 HAL Science</a>
 </div>
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/dem2018_uavaspirator.jpg" class="thumb" alt="Aspiration device">
+<div class="card" data-type="conf" data-year="2018">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2018</span>
+</div>
+  <img src="images/gobie.jpg" class="thumb" alt="Aspiration device">
   <h3>Remote Operated Aspiration Device for Waste in Casemates</h3>
   <div class="meta">DEM 2018</div>
   <p>Design and feedback for remotely operated waste aspiration in confined spaces.</p>
+  <a href="https://cea.hal.science/hal-02325158v1" target="_blank">🔗 HAL Science</a>
 </div>
 
-<div class="card">
-  <span class="badge.poster">Poster</span>
-  <img src="images/atsr2018.jpg" class="thumb" alt="ATSR 2018">
+<div class="card" data-type="poster" data-year="2018">
+  <div class="card-meta">
+  <span class="badge poster">Poster</span>
+  <span class="badge year">2018</span>
+</div>
+  <img src="images/C14.jpg" class="thumb" alt="ATSR 2018">
   <h3>Investigation by Gamma Imaging of Casemate 14</h3>
   <div class="meta">ATSR 2018</div>
   <p>Poster on gamma imaging techniques for nuclear facility investigation.</p>
+  <a href="https://cea.hal.science/cea-02338703v1" target="_blank">🔗 HAL Science</a>
 </div>
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/ros_rdm2017.jpg" class="thumb" alt="ROS & nuclear">
+<div class="card" data-type="conf" data-year="2017">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2017</span>
+</div>
+  <img src="images/hexa.jpg" class="thumb" alt="ROS & nuclear">
   <h3>Robot Operating System & Nuclear Dismantling</h3>
   <div class="meta">2RM Robotics Day 2017</div>
   <p>Conference on ROS middleware in nuclear dismantling applications.</p>
 </div>
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/innorobo2017.jpg" class="thumb" alt="Innorobo 2017">
+<div class="card" data-type="conf" data-year="2017">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2017</span>
+</div>
+  <img src="images/serval.jpg" class="thumb" alt="Innorobo 2017">
   <h3>SERVAL Project: Robotic Arm Tele-Operation</h3>
   <div class="meta">Innorobo 2017</div>
   <p>Tele-operation of a robotic arm for dismantling tasks.</p>
 </div>
 
-<div class="card">
-  <span class="badge.patent">Patent</span>
-  <img src="images/patent_tank.jpg" class="thumb" alt="Patent waste tank">
+<div class="card" data-type="patent" data-year="2017">
+  <div class="card-meta">
+  <span class="badge patent">Patent</span>
+  <span class="badge year">2017</span>
+</div>
+  <img src="images/FR3048811.png" class="thumb" alt="Patent waste tank">
   <h3>Waste Aspiration Tank</h3>
   <div class="meta">FR3048811 – 2017</div>
   <p>Patent for aspirated radioactive waste storage and handling.</p>
+  <a href="https://data.inpi.fr/brevets/FR3048811" target="_blank">🔗 INPI Patent Database</a>
 </div>
 
-<div class="card">
-  <span class="badge.patent">Patent</span>
-  <img src="images/patent_mapping.jpg" class="thumb" alt="Patent mapping">
+<div class="card" data-type="patent" data-year="2017">
+  <div class="card-meta">
+  <span class="badge patent">Patent</span>
+  <span class="badge year">2017</span>
+</div>
+  <img src="images/FR3043211.png" class="thumb" alt="Patent mapping">
   <h3>Mapping Radioactive Environments</h3>
   <div class="meta">FR3043211 – 2017</div>
   <p>Patent covering techniques for mapping radioactive environments.</p>
+  <a href="https://data.inpi.fr/brevets/FR3043211" target="_blank">🔗 INPI Patent Database</a>
 </div>
 
-<div class="card">
-  <span class="badge.paper">Publication</span>
-  <img src="images/hari_mag.jpg" class="thumb" alt="H@ri article">
+<div class="card" data-type="paper" data-year="2016">
+  <div class="card-meta">
+  <span class="badge paper">Publication</span>
+  <span class="badge year">2016</span>
+</div>
+  <img src="images/hari.jpg" class="thumb" alt="H@ri article">
   <h3>H@ri, a New Asset for Nuclear Dismantling</h3>
   <div class="meta">H+ Magazine – Apr 2016</div>
   <p>Magazine article on intelligent systems for nuclear dismantling.</p>
+  <a href="https://www.researchgate.net/publication/311588624_Hri_un_nouvel_atout_pour_le_demantelement_nucleaire" target="_blank">🔗 ResearchGate</a>
 </div>
 
-<div class="card">
-  <span class="badge.paper">Publication</span>
-  <img src="images/inspection_robot.jpg" class="thumb" alt="Inspection robot">
+<div class="card" data-type="paper" data-year="2016">
+  <div class="card-meta">
+  <span class="badge paper">Publication</span>
+  <span class="badge year">2016</span>
+</div>
+  <img src="images/hari2.jpg" class="thumb" alt="Inspection robot">
   <h3>Humanoid Inspection & Cleanup Robot</h3>
   <div class="meta">Jan 2016</div>
   <p>Publication on humanoid robotics for inspection and cleanup in glovebox environments.</p>
+  <a href="https://cea.hal.science/hal-01254973v1" target="_blank">🔗 HAL Science</a>
 </div>
 
-<div class="card">
-  <span class="badge.paper">Publication</span>
-  <img src="images/robots_surgery.jpg" class="thumb" alt="Robots & surgery">
+<div class="card" data-type="paper" data-year="2015">
+  <div class="card-meta">
+  <span class="badge paper">Publication</span>
+  <span class="badge year">2015</span>
+</div>
+  <img src="images/laser2.jpg" class="thumb" alt="Robots & surgery">
   <h3>Complementary Robots in Surgery & Dismantling</h3>
   <div class="meta">H+ Magazine – Dec 2015</div>
   <p>Discussion of robotic applications in surgery and nuclear dismantling.</p>
+  <a href="https://www.researchgate.net/publication/311588567_Des_robots_complementaires_la_chirurgie_de_l'assainissement_demantelement" target="_blank">🔗 ResearchGate</a>
 </div>
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/wms2015.jpg" class="thumb" alt="WMS 2015">
+<div class="card" data-type="conf" data-year="2015">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2015</span>
+</div>
+  <img src="images/RICA.jpg" class="thumb" alt="WMS 2015">
   <h3>Robotic D&D: Smart Robots</h3>
   <div class="meta">WMS Journal Conference – Mar 2015</div>
   <p>Conference on integrated robotic solutions for dismantling & decontamination.</p>
+  <a href="https://cea.hal.science/cea-01232697v1" target="_blank">🔗 HAL Science</a>
 </div>
 
-<div class="card">
-  <span class="badge.conf">Conference</span>
-  <img src="images/wms2015.jpg" class="thumb" alt="WMS 2015">
+<div class="card" data-type="conf" data-year="2015">
+  <div class="card-meta">
+  <span class="badge conf">Conference</span>
+  <span class="badge year">2015</span>
+</div>
+  <img src="images/robotcable.jpg" class="thumb" alt="WMS 2015">
   <h3>Investigation Robot on Cables</h3>
   <div class="meta">WMS Journal Conference – Mar 2015</div>
   <p>Presentation on robotic inspection along cables in industrial environments.</p>
+  <a href="https://cea.hal.science/cea-01232700v1" target="_blank">🔗 HAL Science</a>
 </div>
 
 </div>
@@ -292,6 +460,33 @@ footer{text-align:center;color:#9ca3af;padding:2rem;font-size:.9rem}
 <footer>
 © 2026 – Jérémy Seyssaud · Robotics · Autonomous Systems · Nuclear Decommissioning
 </footer>
+
+<script>
+const typeFilter = document.getElementById('filter-type');
+const yearFilter = document.getElementById('filter-year');
+const cards = document.querySelectorAll('.card');
+
+function applyFilters(){
+  const type = typeFilter.value;
+  const year = yearFilter.value;
+
+  cards.forEach(card => {
+    const matchType = (type === 'all' || card.dataset.type === type);
+    const matchYear = (year === 'all' || card.dataset.year === year);
+
+    card.style.display = (matchType && matchYear) ? 'flex' : 'none';
+  });
+}
+
+typeFilter.addEventListener('change', applyFilters);
+yearFilter.addEventListener('change', applyFilters);
+</script>
+
+
+
+
+
+
 
 </body>
 </html>
