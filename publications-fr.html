@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -85,7 +85,7 @@ h1,h2{color:#22c55e}
 /* Grid Cards */
 .grid{
   display:grid;
-  grid-template-columns:repeat(3, 320px);
+  grid-template-columns:repeat(3, 320px); /* 🔥 largeur FIXE */
   gap:1.5rem;
   justify-content:center; /* centre la grille */
 }
@@ -170,31 +170,31 @@ footer{text-align:center;color:#9ca3af;padding:2rem;font-size:.9rem}
 </head>
 <body>
 <header>
-    <nav class="lang-switch">EN | <a href="publications-fr.html">FR</a></nav>
+    <nav class="lang-switch"><a href="publications.html">EN</a> | FR</nav>
     <div class="header-left">
-      <h1>Publications, Conferences & Research</h1>
+      <h1>Publications, conférences &amp; recherche</h1>
       <p>
-        Chronological overview of peer-reviewed papers, conferences, posters,
-        patents, projects and technical expertise.
+        Vue chronologique des articles peer-reviewed, conférences, posters,
+        brevets, projets et expertises techniques.
       </p>
     </div>
 
     <div class="header-right">
-      <a href="index.html" class="back-link">← Back to home</a>
+      <a href="index-fr.html" class="back-link">← Retour à l'accueil</a>
 
       <div class="filters">
         <select id="filter-type">
-          <option value="all">All types</option>
-          <option value="conf">Conference</option>
+          <option value="all">Tous les types</option>
+          <option value="conf">Conférence</option>
           <option value="paper">Publication</option>
           <option value="poster">Poster</option>
-          <option value="project">Project</option>
+          <option value="project">Projet</option>
           <option value="expert">Expertise</option>
-          <option value="patent">Patent</option>
+          <option value="patent">Brevet</option>
         </select>
 
         <select id="filter-year">
-          <option value="all">All years</option>
+          <option value="all">Toutes les années</option>
           <option value="2025">2025</option>
           <option value="2024">2024</option>
           <option value="2023">2023</option>

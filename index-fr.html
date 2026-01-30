@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jérémy Seyssaud </title>
+
+<link rel="icon" type="image/png" href="robot.png">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#020617;
+  --panel:#0b1220;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --accent:#38bdf8;
+  --accent2:#22c55e;
+  --border:#1f2937;
+  --header-height:0rem;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'JetBrains Mono',monospace;
+  background:radial-gradient(circle at top,#0b1220,#020617);
+  color:var(--text);
+  line-height:1.6;
+  padding-top:var(--header-height);
+}
+a{color:var(--accent);text-decoration:none;font-size:.85rem}
+a:hover{text-decoration:underline}
+
+header{
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+  width:100%;
+  box-sizing:border-box;
+  padding:1rem 2rem;
+  max-width:1100px;
+  margin:0 auto;
+  background:rgba(2,6,23,.9);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--border);
+}
+.lang-switch{ position:absolute; top:1rem; right:2rem; font-size:.8rem; color:var(--muted); }
+.lang-switch a{ color:var(--accent); }
+.lang-switch .active{ color:var(--muted); cursor:default; pointer-events:none; }
+header h1{font-size:3rem;margin-bottom:.35rem}
+header p{color:var(--muted);max-width:900px;font-size:.9rem}
+
+.actions{
+  margin-top:1.5rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem
+}
+.btn{
+  border:1px solid var(--border);
+  padding:.45rem .8rem;
+  border-radius:8px;
+  background:#020617;
+  color:var(--text);
+  font-size:.8rem
+}
+.btn.primary{border-color:var(--accent);color:var(--accent)}
+
+section{
+  max-width:1100px;
+  margin:1.25rem auto;
+  padding:1.5rem;
+  background:rgba(11,18,32,.9);
+  border-radius:14px;
+  border:1px solid var(--border)
+}
+h2{color:var(--accent2);margin-top:0;font-size:1.25rem}
+h3{margin:.2rem 0;font-size:1rem}
+
+/* KEY EXPERTISE */
+.expertise{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem
+}
+.expertise .badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:28px;
+  padding:0 1rem;
+  font-size:.75rem;
+  font-weight:500;
+  border-radius:9999px;
+  background:#021b33;
+  color:#7dd3fc;
+  border:1px solid #38bdf8;
+  box-shadow:0 0 0 1px rgba(56,189,248,.2);
+}
+
+/* TIMELINE */
+
+.event{
+  margin-bottom:1.6rem;
+  position:relative;
+  opacity:0;
+  transform:translateY(20px);
+  transition:opacity .6s ease, transform .6s ease
+}
+.event.visible{
+  opacity:1;
+  transform:translateY(0)
+}
+
+.event span{
+  color:var(--muted);
+  font-size:.9rem
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem
+}
+.card{
+  background:#020617;
+  border:1px solid var(--border);
+  padding:1.2rem;
+  border-radius:12px
+}
+
+/* LINKS FOOTER */
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  align-items:center
+}
+.links a{
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  font-size:.8rem
+}
+.links img{
+  height:24px;
+  filter:grayscale(100%);
+  opacity:.9
+}
+.links a:hover img{
+  filter:none;
+  opacity:1
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:2rem;
+  font-size:.9rem
+}
+@font-face {
+  font-family: 'Segment7';
+  src: url('font/segment7/G7_Segment_7a.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Name + institutions */
+.name-bar{  display:flex;  align-items:center;  gap:1rem;  flex-wrap:wrap;}
+.name-bar h1{  font-size:3rem;  margin:0;  white-space:nowrap;}
+.org-logo{  height:50px;  width: auto;  opacity:.9;}
+
+@media (max-width:700px){
+  :root{ --header-height:0rem; }
+  header{ padding:.5rem 1rem; }
+  .lang-switch{ top:.5rem; right:1rem; font-size:.75rem; }
+  .name-bar{ gap:.6rem; }
+  .name-bar h1{ font-size:1.25rem; white-space:normal; }
+  .org-logo{ height:28px; }
+  header p{ font-size:.8rem; }
+  section{ padding:1rem; margin:1rem auto; }
+  h2{ font-size:1.1rem; }
+  h3{ font-size:.95rem; }
+  .counter-grid{ gap:.6rem; margin-top:1rem; margin-bottom:1.5rem; }
+  .counter{ padding:.6rem; }
+  .seg-counter{ font-size:1.4rem; margin-bottom:.2rem; }
+  .counter span{ font-size:.6rem; }
+  /* Timeline mobile : un seul flux, puces reliées par une ligne */
+  .timeline{ margin-top:1rem; position:relative; }
+  .timeline::before{ content:""; display:block !important; position:absolute; left:1.15rem; top:.5rem; bottom:.5rem; width:2px; background:var(--border); }
+  .event{ display:block !important; margin-bottom:1rem; padding-left:1.2rem; position:relative; }
+  .event::before{ content:"• "; position:absolute; left:0; color:var(--accent); z-index:1; }
+  .event .date{ display:inline !important; margin:0; padding:0; font-size:.9rem; color:var(--muted); }
+  .event .date-logo{ width:24px; height:auto; vertical-align:middle; margin-left:.3rem; }
+  .event .dot{ display:none !important; }
+  .event .content{ display:block !important; margin:0; padding:0; margin-top:.25rem; }
+  .event .content h3{ margin:0 0 .1rem 0; font-size:.95rem; }
+  .event .content .org{ margin:0; font-size:.8rem; }
+  .event .content p{ margin:0; font-size:.85rem; line-height:1.4; }
+}
+/* Teaching & Supervision */
+.card.teaching{  border-left:4px solid #38bdf8;}
+.card.supervision{  border-left:4px solid #22c55e;}
+.card h3{  margin-bottom:.6rem;}
+.item{  margin-bottom:1rem;}
+.item strong{  color:#e5e7eb;}
+.item .details{  color:var(--muted);  font-size:.85rem;}
+.item .year{  display:inline-block;  margin-top:.2rem;  font-size:.75rem;  color:#9ca3af;}
+
+/* CTA SECTION */
+.cta-section{  text-align:center;}
+
+.cta-grid{
+  margin-top:1rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1rem;
+}
+
+.cta-card{
+  background:linear-gradient(135deg,#020617,#0b1220);
+  border:1px solid #1f2937;
+  border-radius:12px;
+  padding:1.2rem;
+  text-decoration:none;
+  color:#e5e7eb;
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.cta-card:hover{  transform:translateY(-6px);  border-color:#38bdf8;  box-shadow:0 20px 40px rgba(0,0,0,.35);text-decoration:none;}
+.cta-icon{  font-size:1.6rem;}
+.cta-card h3{  margin:0;  font-size:.95rem;  color:#22c55e;}
+.cta-card p{  font-size:.85rem;  color:#9ca3af;  line-height:1.4;}
+.cta-link{  margin-top:auto;  font-size:.8rem;  color:#38bdf8;  font-weight:500;}
+
+
+/* Timeline PC uniquement (grille 3 colonnes) */
+@media (min-width: 701px) {
+.timeline {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 180px;
+  top: .8rem;
+  bottom: .8rem;
+  width: 2px;
+  background: var(--border);
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 160px 40px 1fr;
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  top: .6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* DATE alignée au point */
+.date {
+  text-align: right;
+  padding-right: 1rem;
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .4rem;
+}
+
+.date-logo {
+  height: auto;
+  width: 42px;
+}
+
+.dot {
+  position: relative;
+  height: 100%;
+}
+
+.content {
+  padding-left: 1rem;
+  min-width: 0;
+}
+}
+
+.event.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: .3rem;
+}
+
+.logo {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+  filter: none;
+  opacity: .9;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.org {
+  font-size: .8rem;
+  color: var(--accent);
+}
+
+.content p {
+  margin: .4rem 0 0;
+  color: #d1d5db;
+}
+
+.counter-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+  margin-top:1.5rem;
+  margin-bottom:2rem;
+}
+
+.counter{
+  background:#020617;
+  border:1px solid #1f2937;
+  border-radius:12px;
+  padding:.8rem;
+  text-align:center;
+  position:relative;
+  min-width:0;
+  overflow-wrap:break-word;
+  word-break:break-word;
+}
+
+/* 7-seg number */
+.seg-counter{
+  font-family:'Segment7', monospace;
+  font-size:1.75rem;
+  letter-spacing:.08em;
+  color:#22c55e;
+  line-height:1;
+  margin-bottom:.3rem;
+
+  /* glow instrumentation */
+  text-shadow:
+    0 0 6px rgba(34,197,94,.6),
+    0 0 18px rgba(34,197,94,.3);
+}
+
+/* label */
+.counter span{
+  font-size:.65rem;
+  color:#9ca3af;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  line-height:1.2;
+  display:block;
+}
+.intern-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:.6rem 1.4rem;
+  font-size:.85rem;
+  color:#d1d5db;
+  margin-top: 1rem;
+}
+
+.intern{
+  display:block;
+  padding-left:.7rem;
+  border-left:2px solid #1f2937;
+  white-space:normal;       /* autorise le retour à la ligne */
+  line-height:1.4;
+}
+
+.intern strong{
+  color:#38bdf8;
+  font-weight:500;
+}
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="lang-switch"><a href="index.html">EN</a> | FR</nav>
+<div class="name-bar">
+  <img src="images/cea.png" alt="CEA logo" class="org-logo">
+  <h1>Jérémy Seyssaud</h1>
+  <img src="images/imt.png" alt="IMT logo" class="org-logo">
+</div>
+<p>
+<strong>Ingénieur R&amp;D Robotique / Chercheur</strong><br>
+Inspection &amp; démantèlement nucléaire · Mécatronique<br>
+France
+</p>
+
+
+</header>
+
+<section>
+<h2>Profil</h2>
+<p>
+<strong>Ingénieur chercheur en robotique spécialisé dans l'inspection nucléaire, plus de 10 ans d'expérience en environnements hostiles.<br>
+</strong> Expertises : conception, industrialisation, qualification et déploiement opérationnel de systèmes robotiques.
+</p>
+</section>
+
+<section>
+<h2>Expertises clés</h2>
+<div class="expertise">
+  <span class="badge">R&amp;D Robotique</span>
+  <span class="badge">Environnements nucléaires</span>
+  <span class="badge">Navigation autonome</span>
+  <span class="badge">UAV &amp; UGV indoor</span>
+  <span class="badge">ROS2</span>
+  <span class="badge">Ingénierie système</span>
+  <span class="badge">Qualification mécatronique</span>
+  <span class="badge">Déploiement terrain</span>
+</div>
+</section>
+
+<section>
+  <h2>Parcours professionnel et académique</h2>
+
+  <div class="timeline">
+
+    <div class="event">
+      <div class="date">
+        Since 2024
+        <img src="images/cea.png" alt="CEA" class="date-logo">
+      </div>
+      <div class="dot"></div>
+      <div class="content">
+        <h3>CEA – Ingénieur R&amp;D Robotique</h3>
+        <div class="org">DES / ISEC / DPME / SEIP / LNPA</div>
+        <p>
+          Conception, qualification et déploiement de systèmes robotiques d'investigation
+          pour le démantèlement nucléaire.<br>
+          Pilote robot d'intérieur au sein du groupe INTRA.
+        </p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date">
+        2018 – 2020
+        <img src="images/cea.png" alt="CEA" class="date-logo">
+      </div>
+      <div class="dot"></div>
+      <div class="content">
+        <h3>CEA – Ingénieur chargé d'opérations &amp; support technique robotique</h3>
+        <div class="org">DEN / DDCC / UADA</div>
+        <p>
+          Ingénieur chargé d'opérations sur les chantiers de démantèlement de l'installation Atelier Pilote de Marcoule.
+          Support technique robotique auprès des chefs de lots.
+        </p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date">2017 – 2018
+      <img src="images/cea.png" alt="CEA" class="date-logo">
+      </div>
+      <div class="dot"></div>
+      <div class="content">
+        <h3>CEA – Chargé de lots A&amp;D</h3>
+        <div class="org">DEN / DDCC / UDBE</div>
+        <p>
+          Définition, commande et suivi des contrats d'études et de réalisation
+          de systèmes robotiques pour la reprise et le conditionnement des déchets bitumineux.
+        </p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date">2012 – 2016
+      <img src="images/cea.png" alt="CEA" class="date-logo">
+      </div>
+      <div class="dot"></div>
+      <div class="content">
+        <h3>CEA – Référent technique robotique</h3>
+        <div class="org">DEN / DPAD / CMET</div>
+        <p>
+          Référent technique robotique pour les projets de décontamination et démantèlement nucléaire.
+          Suivi de bout en bout, du concept au déploiement industriel.
+        </p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date">2008 – 2012
+      <img src="images/assystem.png" alt="assystem" class="date-logo">
+      </div>
+      <div class="dot"></div>
+      <div class="content">
+        <h3>ASSYSTEM EOS – Début de carrière ingénierie</h3>
+        <p>
+          Postes ingénierie dans le démantèlement nucléaire, la maintenance industrielle,
+          les essais de systèmes téléopérés et le développement de véhicules hybrides.
+        </p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date">2004 – 2007
+      <img src="images/supmeca.png" alt="SUPMECA" class="date-logo">
+      </div>
+      <div class="dot"></div>
+      <div class="content">
+        <h3>SUPMECA Paris – Diplôme d'ingénieur (Mécatronique)</h3>
+        <p>Diplôme d'ingénieur spécialisé en mécatronique.</p>
+      </div>
+    </div>
+
+    <div class="event">
+      <div class="date">2002 – 2004
+      <img src="images/monplaisir.png" alt="La Martinière Monplaisir" class="date-logo">
+      </div>
+      <div class="dot"></div>
+      <div class="content">
+        <h3>Classes préparatoires (CPGE – PSI)</h3>
+        <p>La Martinière Monplaisir – Lyon</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section>
+<h2>Enseignement &amp; encadrement académique</h2>
+
+<div class="grid">
+
+<!-- TEACHING -->
+<div class="card teaching">
+  <div class="item">
+    <strong>Chargé de cours – Robot Operating System (ROS2)</strong>
+    <div class="details">
+      Cours magistraux, travaux dirigés & projets<br>
+      Formation ingénieur mécatronique <br> IMT Mines d’Alès<br> 
+      ≈80 h/an 
+    </div>
+    <div class="year">Depuis 2021</div>
+  </div>
+</div>
+
+<!-- SUPERVISION -->
+<div class="card supervision">
+  <div class="item">
+    <strong>Encadrement projet R&amp;D<br>Navigation véhicule autonome (F1TENTH)</strong>
+    <div class="details">
+      Encadrement équipe 3 étudiants · 3 mois<br>
+      Formation ingénieur mécatronique – IMT Mines d’Alès
+    </div>
+    <div class="year">2025</div>
+  </div>
+
+  <div class="item">
+    <strong>Client projet industriel <br> Robotique d'intérieur pour inspection nucléaire</strong>
+    <div class="details">
+      Définition et encadrement de projets systèmes mécatroniques pluriannuels,
+      du génie des systèmes à la qualification prototype, rôle de client industriel.
+    </div>
+        <div class="year">Depuis 2021</div>
+  </div>
+</div>
+</div>
+</section>
+
+<section>
+  <h2>Encadrement &amp; mentorat</h2>
+
+  <!-- COUNTERS -->
+
+  <div class="counter-grid">
+
+    <div class="counter">
+      <div class="seg-counter">01</div>
+      <span>Thèse</span>
+    </div>
+
+    <div class="counter">
+      <div class="seg-counter">01</div>
+      <span>Apprentissage</span>
+    </div>
+
+    <div class="counter">
+      <div class="seg-counter">13</div>
+      <span>Stages ingénieur</span>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- PHD -->
+  <div class="card supervision" style="margin-bottom:1.5rem">
+    <h3>Encadrement doctoral</h3>
+
+    <div class="item">
+      <strong>Anthony Burghoffer</strong><br>
+      <em>
+        Navigation multi-critères d'un agent mobile appliquée à la robotique d'investigation nucléaire.
+      </em>
+      <div class="org">
+        Thèse · CEA / IMT Mines Alès
+      </div>
+      <div class="year">2023 – 2026</div>
+    </div>
+  </div>
+
+  <!-- APPRENTICESHIP -->
+  <div class="card supervision" style="margin-bottom:1.5rem">
+    <h3>Encadrement apprentissage</h3>
+
+    <div class="item">
+      <strong>Valérie Tran</strong><br>
+      <em>
+        Étude de la dissémination des poussières induite par les robots d'inspection et qualification
+        des algorithmes SLAM par motion capture.        
+      </em>
+
+      <div class="org">Apprentissage ingénieur . IMT Mines Alès</div>
+
+      <div class="year">2023 – 2026</div>
+    </div>
+  </div>
+
+  <!-- INTERNSHIPS -->
+  <div class="card supervision">
+    <h3>Stages ingénieur</h3>
+
+    <em>
+      Encadrement de nombreux stages ingénieur (2e et 3e années cycle ingénieur),
+      principalement axés sur la <strong>conception, l'intégration et la qualification de systèmes robotiques
+      pour l'investigation nucléaire</strong> (robots mobiles, capteurs, systèmes embarqués et interfaces opérateur).
+      </em>
+
+<div class="intern-list">
+  <div class="intern"><strong>2025</strong> · Marie Antoine Ajay</div>
+  <div class="intern"><strong>2023</strong> · Aylik Sokhal</div>
+  <div class="intern"><strong>2023</strong> · Thomas Poizot</div>
+  <div class="intern"><strong>2022</strong> · Niels Brottier</div>
+  <div class="intern"><strong>2021</strong> · Magnus Braun</div>
+  <div class="intern"><strong>2017</strong> · Rémi Boubon</div>
+  <div class="intern"><strong>2016</strong> · Maxence Lafon</div>
+  <div class="intern"><strong>2015</strong> · Romain Reignier</div>
+  <div class="intern"><strong>2015</strong> · Gaëtan Roquiny</div>
+  <div class="intern"><strong>2014</strong> · Kévin Giraud-Esclasse</div>
+  <div class="intern"><strong>2014</strong> · Martin Dorel</div>
+  <div class="intern"><strong>2014</strong> · Ludovic Authier</div>
+  <div class="intern"><strong>2013</strong> · Michael Gros-Desormeaux</div>
+</div>
+  </div>
+
+</section>
+
+
+
+<section class="cta-section">
+  <h2>Explorer mon travail</h2>
+
+  <div class="cta-grid">
+    <a href="projects-fr.html" class="cta-card">
+      <span class="cta-icon">🛠️</span>
+      <h3>Projets personnels</h3>
+      <p>
+        Robotique, systèmes embarqués, IoT, outils web et plateformes expérimentales.
+      </p>
+      <span class="cta-link">Voir les projets →</span>
+    </a>
+
+    <a href="publications-fr.html" class="cta-card">
+      <span class="cta-icon">📄</span>
+      <h3>Contributions recherche</h3>
+      <p>
+        Articles, conférences internationales, posters et brevets.
+      </p>
+      <span class="cta-link">Voir les publications →</span>
+    </a>
+  </div>
+</section>
+
+<section>
+<h2>Liens &amp; profils recherche</h2>
+
+<div class="links">
+  <a href="https://www.linkedin.com/in/seyssaud-jeremy-8b9a23148/" target="_blank">
+    <img src="images/linkedin.png"> LinkedIn
+  </a>
+  <a href="https://github.com/Rastafouille" target="_blank">
+    <img src="images/github.png"> GitHub
+  </a>
+  <a href="https://www.researchgate.net/profile/Jeremy-Seyssaud" target="_blank">
+    <img src="images/rg.png"> ResearchGate
+  </a>
+  <a href="https://cea.hal.science/search/index/?q=*&authIdPerson_i=6038" target="_blank">
+    <img src="images/cea.png"> HAL CEA
+  </a>
+  <a href="https://imt.hal.science/search/index/?q=*&authIdPerson_i=6038" target="_blank">
+    <img src="images/imt.png"> HAL IMT
+  </a>
+  <a class="btn primary" href="doc/CV-SEYSSAUD-CEA-2025.pdf">⬇ Télécharger le CV (PDF)</a>
+
+</div>
+
+</section>
+
+
+<footer>
+© 2026 – Jérémy Seyssaud 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const events = document.querySelectorAll('.event');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold:0.2 });
+  events.forEach(e => observer.observe(e));
+});
+</script>
+
+</body>
+</html>
